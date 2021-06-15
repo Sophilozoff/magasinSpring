@@ -3,6 +3,7 @@ package fr.m2i.spring.magasinspring.models;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -21,5 +22,5 @@ public class Client {
 
     @ManyToOne
     @JoinColumn(name = "order_id", referencedColumnName = "id")
-    private Order order;
+    private List<Order> orders;
 }
