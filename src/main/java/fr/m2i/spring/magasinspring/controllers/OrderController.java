@@ -36,8 +36,8 @@ public class OrderController {
         return this.service.update(order);
     }
 
-    @DeleteMapping("")
-    public void delete(@RequestBody Order order) {
-        this.service.delete(order);
+    @DeleteMapping("{id}")
+    public void delete(@PathVariable String id) {
+        this.service.delete(id);
     }
 }

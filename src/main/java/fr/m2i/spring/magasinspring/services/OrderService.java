@@ -41,8 +41,8 @@ public class OrderService {
         return this.repository.save(order);
     }
 
-    public void delete(Order order) {
-        this.repository.delete(order);
+    public void delete(String id) {
+        this.repository.deleteById(id);
     }
 
 }

@@ -42,7 +42,7 @@ public class ClientService {
         return this.repository.save(client);
     }
 
-    public void delete(Client client) {
-        this.repository.delete(client);
+    public void delete(String id) {
+        this.repository.deleteById(id);
     }
 }

@@ -41,7 +41,7 @@ public class CategoryService {
         return this.repository.save(category);
     }
 
-    public void delete(Category category) {
-        this.repository.delete(category);
+    public void delete(String id) {
+        this.repository.deleteById(id);
     }
 }

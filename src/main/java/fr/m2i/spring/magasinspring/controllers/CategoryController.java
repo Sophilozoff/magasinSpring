@@ -36,9 +36,9 @@ public class CategoryController {
         return this.service.update(category);
     }
 
-    @DeleteMapping("")
-    public void delete(@RequestBody Category category) {
-        this.service.delete(category);
+    @DeleteMapping("{id}")
+    public void delete(@PathVariable String id) {
+        this.service.delete(id);
     }
 
 }

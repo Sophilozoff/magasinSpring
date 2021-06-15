@@ -36,9 +36,9 @@ public class ProductController {
         return this.service.update(product);
     }
 
-    @DeleteMapping("")
-    public void delete(@RequestBody Product product) {
-        this.service.delete(product);
+    @DeleteMapping("{id}")
+    public void delete(@PathVariable String id) {
+        this.service.delete(id);
     }
 
 }
