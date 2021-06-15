@@ -20,7 +20,7 @@ public class Client {
     @Column(name = "last_name")
     private String lastName;
 
-    @ManyToOne
+    @OneToMany
     @JoinColumn(name = "order_id", referencedColumnName = "id")
     private List<Order> orders;
 }
