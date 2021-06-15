@@ -19,9 +19,9 @@ public class OrderService {
     }
 
     public List<GetOrderDto> findAll() {
-        List<Order> products = this.repository.findAll();
+        List<Order> orders = this.repository.findAll();
         List<GetOrderDto> getOrderDtos = new ArrayList<>();
-        products.forEach(order -> {
+        orders.forEach(order -> {
             getOrderDtos.add(
                     this.mapper.convertValue(order, GetOrderDto.class)
             );

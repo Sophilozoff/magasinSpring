@@ -1,6 +1,8 @@
 package fr.m2i.spring.magasinspring.models;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
@@ -8,6 +10,8 @@ import java.util.List;
 @Entity
 @Data
 @Table(name = "client")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Client {
 
     @Id
@@ -20,7 +24,4 @@ public class Client {
     @Column(name = "last_name")
     private String lastName;
 
-    @OneToMany
-    @JoinColumn(name = "order_id", referencedColumnName = "id")
-    private List<Order> orders;
 }

@@ -1,12 +1,16 @@
 package fr.m2i.spring.magasinspring.models;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
 @Data
 @Table(name = "category")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Category {
 
     @Id
@@ -16,7 +20,4 @@ public class Category {
     @Column(name = "name")
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "product_id", referencedColumnName = "id")
-    private Product product;
 }

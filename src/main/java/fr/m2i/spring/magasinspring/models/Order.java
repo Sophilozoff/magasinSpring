@@ -1,6 +1,8 @@
 package fr.m2i.spring.magasinspring.models;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -8,7 +10,9 @@ import java.util.List;
 
 @Entity
 @Data
-@Table(name = "order")
+@Table(name = "bill")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Order {
 
     @Id
@@ -20,12 +24,14 @@ public class Order {
 
     @ManyToMany
     @JoinTable(
-            name="order_has_product",
-            joinColumns = { @JoinColumn(name="order_id", referencedColumnName = "id")},
-            inverseJoinColumns = { @JoinColumn(name="product_id", referencedColumnName = "id")}
+            name = "bill_has_product",
+            joinColumns = {@JoinColumn(name = "bill_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "product_id", referencedColumnName = "id")}
     )
     private List<Product> products;
 
-
+    @ManyToOne
+    @JoinColumn(name = "client_id", referencedColumnName = "id")
+    private Client client;
 
 }
