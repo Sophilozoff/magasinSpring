@@ -26,6 +26,11 @@ public class OrderController {
         return this.service.findById(id);
     }
 
+    @GetMapping("/clientorders/{id}")
+    public List<GetOrderDto> findByClientId(@PathVariable String id) {
+        return this.service.findByClientId(id);
+    }
+
     @PostMapping("")
     public Order save(@RequestBody Order order) {
         return this.service.save(order);

@@ -1,5 +1,6 @@
 package fr.m2i.spring.magasinspring.dtos;
 
+import fr.m2i.spring.magasinspring.models.Client;
 import fr.m2i.spring.magasinspring.models.Product;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,5 +16,6 @@ public class GetOrderDto {
 
     private LocalDateTime createdAt;
     private List<Product> products;
+    private Client client;
 
 }

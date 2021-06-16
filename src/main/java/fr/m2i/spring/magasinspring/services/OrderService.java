@@ -29,6 +29,23 @@ public class OrderService {
         return getOrderDtos;
     }
 
+    public List<GetOrderDto> findByClientId(String id) {
+        List<Order> orders = this.repository.findAll();
+        List<GetOrderDto> getOrderDtos = new ArrayList<>();
+        orders.forEach(order -> {
+            getOrderDtos.add(
+                    this.mapper.convertValue(order, GetOrderDto.class)
+            );
+        });
+        List<GetOrderDto> getOrderDtosByClientId = new ArrayList<>();
+        getOrderDtos.forEach((getOrderDto -> {
+            if (getOrderDto.getClient().getId().equals(id)) {
+                getOrderDtosByClientId.add(getOrderDto);
+            }
+        }));
+        return getOrderDtosByClientId;
+    }
+
     public GetOrderDto findById(String id) {
         return mapper.convertValue(this.repository.findById(id).get(), GetOrderDto.class);
     }
@@ -44,5 +61,6 @@ public class OrderService {
     public void delete(String id) {
         this.repository.deleteById(id);
     }
+
 
 }
